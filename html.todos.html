@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="stylesheet3.css">
+    
+    <title>Document.Todos</title>
+    </head>
+    <body>
+        
+        <h1>Todos</h1>
+        <div class="list"><a href>ALL</a><a href>ACTIVE</a><a href>COMPLETED</a></div>
+        <input class="tdoo" placeholder="What needs to be done?"></input>
+       <ul class="todolist">
+        <!-- <li class="listodo">
+            <input class="checkitem" type="checkbox"></input>
+            <label class="textitem"></label>
+               <button class="todospaced"><img class="closeitem" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0%0D%0APSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkgNi40MUwxNy41OSA1IDEyIDEw%0D%0ALjU5IDYuNDEgNSA1IDYuNDEgMTAuNTkgMTIgNSAxNy41OSA2LjQxIDE5IDEyIDEzLjQxIDE3LjU5%0D%0AIDE5IDE5IDE3LjU5IDEzLjQxIDEyeiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5v%0D%0AbmUiLz48L3N2Zz4="></button>
+           </li> -->
+       </ul>
+        
+        <h2>Todos</h2>
+        <input placeholder="What needs to be done?"></input>
+        <ul class="todolist">
+            <li class="listodo">
+                <span class="listfirst">Todos 1</span>
+                <img class="todospaced" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0%0D%0APSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkgNi40MUwxNy41OSA1IDEyIDEw%0D%0ALjU5IDYuNDEgNSA1IDYuNDEgMTAuNTkgMTIgNSAxNy41OSA2LjQxIDE5IDEyIDEzLjQxIDE3LjU5%0D%0AIDE5IDE5IDE3LjU5IDEzLjQxIDEyeiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5v%0D%0AbmUiLz48L3N2Zz4=">
+            </li>
+            <li class="listodo">
+                <span clss="listfirst">Todos 2</span>
+                <img class="todospaced" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0%0D%0APSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkgNi40MUwxNy41OSA1IDEyIDEw%0D%0ALjU5IDYuNDEgNSA1IDYuNDEgMTAuNTkgMTIgNSAxNy41OSA2LjQxIDE5IDEyIDEzLjQxIDE3LjU5%0D%0AIDE5IDE5IDE3LjU5IDEzLjQxIDEyeiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5v%0D%0AbmUiLz48L3N2Zz4=">
+            </li>
+            </ul>
+        <script type="text/javascript">
+        const main = () => {
+  const TodoInputElement = document.querySelector('.tdoo')
+  const TodoListElement = document.querySelector('.todolist')
+
+  TodoInputElement.addEventListener('keyup', event => {
+    if (event.key !== 'Enter') {
+      return
+    }
+
+    if (event.target.value === '') {
+      return
+    }
+
+    if (event.isComposing) {
+      return
+    }
+
+    const todoText = event.target.value
+    const TodoListItemElement = document.createElement('li')
+    TodoListItemElement.className = 'listodo'
+    TodoListItemElement.innerHTML = `
+    <input class="checkitem" type="checkbox"></input>
+    <label class="textitem">${todoText}</label>
+    <button class="todospaced"><img class="closeitem" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0%0D%0APSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkgNi40MUwxNy41OSA1IDEyIDEw%0D%0ALjU5IDYuNDEgNSA1IDYuNDEgMTAuNTkgMTIgNSAxNy41OSA2LjQxIDE5IDEyIDEzLjQxIDE3LjU5%0D%0AIDE5IDE5IDE3LjU5IDEzLjQxIDEyeiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5v%0D%0AbmUiLz48L3N2Zz4="></button>
+    `
+    TodoListElement.appendChild(TodoListItemElement)
+
+    TodoListItemElement.querySelector('.closeitem').addEventListener('click', () => {
+      TodoListItemElement.remove()
+    })
+
+    event.target.value = ''
+  })
+}
+window.addEventListener('load', main)</script>
+        
+    </body>
+    </html>

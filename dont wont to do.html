@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" type="text/css" href="stylesheet4.css">
+    
+    <title>Document</title>
+    </head>
+    <body>
+        <h1>Don't want Todos</h1>
+        <img class="neko" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe5B2thtZgqRG22aOCvkOoM8Q8ORRtf45ZA9mVU8iqvLjFKpa9pA&s">
+            <input class="notdo" placeholder="Are you motivated ?"></input>
+        <ul class="notlist">
+            <!-- <li class="nottodo">
+                <input class="check" type="box"><input>
+                <label class="textitem"></label>
+                <button class="delete"><img class="close" src=""></button>
+            </li> -->
+        </ul>
+
+        <script type="text/javascript">
+          const main = () => {
+    const TodoInputElement = document.querySelector('.tdoo')
+    const TodoListElement = document.querySelector('.todolist')
+    TodoInputElement.addEventListener('keyup', event => {
+      if (event.key !== 'Enter') {
+        return
+      }
+      if (event.target.value === '') {
+        return
+      }
+      if (event.isComposing) {
+        return
+      }
+      const todoText = event.target.value
+      const TodoListItemElement = document.createElement('li')
+      TodoListItemElement.className = 'listodo'
+      TodoListItemElement.innerHTML = `
+      <input class="checkitem" type="checkbox"></input>
+      <label class="textitem">${todoText}</label>
+      <button class="todospaced"><img class="closeitem" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0%0D%0APSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkgNi40MUwxNy41OSA1IDEyIDEw%0D%0ALjU5IDYuNDEgNSA1IDYuNDEgMTAuNTkgMTIgNSAxNy41OSA2LjQxIDE5IDEyIDEzLjQxIDE3LjU5%0D%0AIDE5IDE5IDE3LjU5IDEzLjQxIDEyeiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5v%0D%0AbmUiLz48L3N2Zz4="></button>
+      `
+      TodoListElement.appendChild(TodoListItemElement)
+      TodoListItemElement.querySelector('.closeitem').addEventListener('click', () => {
+        TodoListItemElement.remove()
+      })
+      event.target.value = ''
+    })
+  }
+  window.addEventListener('load', main)</script>
+
+
+    </body>
+    </html>
